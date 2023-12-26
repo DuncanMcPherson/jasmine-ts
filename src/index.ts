@@ -1,7 +1,13 @@
 #!/usr/bin/env node
-import * as path from "path";
+import path from "path";
 import {register} from "ts-node";
 import yargs from "yargs";
+import os from "os"
+
+
+import Command from "./command";
+
+import Jasmine from "jasmine";
 
 const argv = yargs(process.argv.slice(2))
   .scriptName('jasmine-ts')
@@ -136,15 +142,15 @@ const tsNodeOptions = TS_NODE_OPTIONS.reduce((options, option) => {
 
   return options;
 }, {} as any)
-
+const ParallelRunner = require("jasmine/parallel");
 register(tsNodeOptions);
-
-const Jasmine = require("jasmine");
-const Command = require("jasmine/lib/command");
-
-const jasmine = new Jasmine({projectBaseDir: path.resolve()});
 const examplesDir = path.join("node_modules", "jasmine-core", "lib", "jasmine-core", "example", "node_example");
-const command = new Command(path.resolve(), examplesDir, console.log);
+const command = new Command(path.resolve(), examplesDir, {
+  platform: os.platform,
+  ParallelRunner,
+  Jasmine,
+  print: console.log
+});
 
 const JASMINE_OPTIONS = [
   'no-color',
@@ -158,7 +164,7 @@ const JASMINE_OPTIONS = [
   'random',
   'seed'
 ]
-
+//
 const commandOptions = JASMINE_OPTIONS
   .filter(option => option in argv)
   .map(option => {
@@ -196,4 +202,4 @@ for (const arg of argv._) {
     files.push(arg.toString())
 }
 
-command.run(jasmine, [...commandOptions, ...files]);
+command.run([...commandOptions, ...files]);

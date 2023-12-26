@@ -1,7 +1,6 @@
 # jasmine-ts
 
-**Note: This repository is archived. There will not be any more contributions.**
-
+[//]: # (TODO: replace with updated url)
 ![CI](https://github.com/svi3c/jasmine-ts/workflows/Node.js%20CI/badge.svg)
 
 A simplification for running [jasmine](https://www.npmjs.com/package/jasmine) with
