@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - master
-  push:
-    branches:
-      - master
 
 jobs:
   test:
@@ -16,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12, 14, 16, 17]
+        node-version: [16, 17, 18, 19, 20]
 
     steps:
     - uses: actions/checkout@v2

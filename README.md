@@ -1,7 +1,6 @@
 # jasmine-ts
 
-[//]: # (TODO: replace with updated url)
-![CI](https://github.com/svi3c/jasmine-ts/workflows/Node.js%20CI/badge.svg)
+![CI](https://github.com/duncanmcpherson/jasmine-ts/workflows/Node.js%20CI/badge.svg)
 
 A simplification for running [jasmine](https://www.npmjs.com/package/jasmine) with
 [ts-node](https://github.com/TypeStrong/ts-node).
