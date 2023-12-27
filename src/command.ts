@@ -100,7 +100,7 @@ function isFileArg(arg: any): boolean {
   return arg.indexOf('--') !== 0 && !isEnvironmentVariable(arg);
 }
 
-function parseOptions(argv: any, isWindows: boolean) {
+function parseOptions(argv: string[], isWindows: boolean) {
   // tslint:disable-next-line:one-variable-per-declaration
   let color = process.stdout.isTTY || false,
     reporter,
@@ -118,7 +118,7 @@ function parseOptions(argv: any, isWindows: boolean) {
     unknownOptions = [],
     usageErrors = []
 
-    for (const arg in argv) {
+  for (const arg of argv) {
     if (arg === '--no-color') {
       color = false;
     } else if (arg === '--color') {
