@@ -1,6 +1,6 @@
 {
-  "name": "jasminets",
-  "version": "1.0.4",
+  "name": "jasminenodets",
+  "version": "1.0.5",
   "description": "Execute jasmine with ts-node",
   "main": "lib/index.js",
   "bin": "lib/index.js",
